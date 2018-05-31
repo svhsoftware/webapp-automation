@@ -14,9 +14,7 @@ public class SearchTest extends BaseTest {
     public void searchGoogle_svhsoftware () throws InterruptedException {
     	SearchPage searchPage = getPageInstance(SearchPage.class);
     	searchPage.goToPage();
-    	searchPage.search("SVH Software");
-    	
-    	SearchResultsPage searchResultsPage = getPageInstance(SearchResultsPage.class);
+    	SearchResultsPage searchResultsPage = searchPage.searchFor("SVH Software");
     	assertTrue(searchResultsPage.isPageOpened());
     }
 }

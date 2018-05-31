@@ -3,6 +3,7 @@ package com.svhsoftware.automation.pageobjects.google;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.svhsoftware.automation.framework.BasePage;
 
@@ -25,11 +26,12 @@ public class SearchPage extends BasePage {
     }
     
     public boolean isPageOpened() {
-        return googleSearchText.isDisplayed();
+    	return wait.until(ExpectedConditions.elementToBeClickable(googleSearchBtn)).isDisplayed();
     }
     
-    public void search(String text) {
-    	writeText(googleSearchText, text);
+    public SearchResultsPage searchFor(String text) {
+    	googleSearchText.sendKeys(text);
     	googleSearchBtn.submit();
+    	return getPageInstance(SearchResultsPage.class);
     }
 }

@@ -36,54 +36,20 @@ public class BaseCommon {
     }
 
     /**
-     * Click Method by using JAVA Generics (You can use both By or Webelement)
-     * @param elementAttr
-     */
-    public <T> void click (T elementAttr) {
-        if(elementAttr.getClass().getName().contains("By")) {
-            driver.findElement((By) elementAttr).click();
-        } else {
-            ((WebElement) elementAttr).click();
-        }
-    }
- 
-    /**
-     * Write Text by using JAVA Generics (You can use both By or Webelement)
-     * @param elementAttr
-     * @param text
-     */
-    public <T> void writeText (T elementAttr, String text) {
-        if(elementAttr.getClass().getName().contains("By")) {
-            driver.findElement((By) elementAttr).sendKeys(text);
-        } else {
-            ((WebElement) elementAttr).sendKeys(text);
-        }
-    }
- 
-    /**
-     * Read Text using  JAVA Generics(You can use both By or Webelement)
-     * @param elementAttr
+     * Find element using By
+     * @param by
      * @return
      */
-    public <T> String readText (T elementAttr) {
-        if(elementAttr.getClass().getName().contains("By")) {
-            return driver.findElement((By) elementAttr).getText();
-        } else {
-            return ((WebElement) elementAttr).getText();
-        }
-    }
- 
-    /**
-     * Close popup if exists
-     * @param by
-     * @throws InterruptedException
-     */
-    public void handlePopup (By by) throws InterruptedException {
-        List<WebElement> popup = driver.findElements(by);
-        if(!popup.isEmpty()){
-            popup.get(0).click();
-            Thread.sleep(200);
-        }
+    public WebElement findElementBy(By by) {
+    	return driver.findElement(by);
     }
     
+    /**
+     * Find elements using By
+     * @param by
+     * @return
+     */
+    public List<WebElement> findElementsBy(By by) {
+    	return driver.findElements(by);
+    }
 }

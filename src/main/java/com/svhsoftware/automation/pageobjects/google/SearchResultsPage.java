@@ -18,7 +18,6 @@ public class SearchResultsPage extends BasePage {
 	}
 
     public boolean isPageOpened() {
-    	wait.until(ExpectedConditions.elementToBeClickable(searchResultLink));
-        return searchResultLink.isDisplayed();
+    	return wait.until(ExpectedConditions.elementToBeClickable(searchResultLink)).isDisplayed();
     }
 }
