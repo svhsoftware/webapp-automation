@@ -11,10 +11,10 @@ Automation framework to test Web based application using
 Project Setup
 =============
 
-# Eclipse
+## Eclipse
   TestNG Plugin - Install from Eclipse Marketplace.
 
-# Web Drivers:
+## Web Drivers:
 
 - Download browser web drivers from https://www.seleniumhq.org/download/ and put all drivers in one directory.
 - Safari: No need of downloading driver. But you must enable the 'Allow Remote Automation' option in Safari's Develop menu to control Safari via WebDriver.
@@ -22,7 +22,7 @@ Project Setup
 
 Selenium Notes
 ===============
-# FindBy strategies for Selenium
+## FindBy strategies for Selenium
 
 The @FindBy annotation is used in Page Objects in Selenium tests to specify the object location strategy for a WebElement or a list of WebElements. Using the PageFactory, these WebElements are usually initialized when a Page Object is created. In this post, I will demonstrate various ways in which you can use @FindBy annotations to efficiently locate (groups of) WebElements.
 
@@ -70,7 +70,7 @@ Using @FindAll:
 private List<WebElement> eithercriterion;
 The eithercriterion list should contain 2 elements, as there is one element that has a name attribute with the value username and also one that has a name attribute with the value password.
 
-Finding Elements with By Methods
+## Finding Elements with By Methods
 Webdriver’s find methods with “By” is listed below.
 
 Method | 	Syntax | 	Description

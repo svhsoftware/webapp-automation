@@ -16,3 +16,6 @@ buildNumber.properties
 
 # TestNG
 test-output/
+
+#logs
+logs/

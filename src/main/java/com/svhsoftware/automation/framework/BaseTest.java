@@ -3,7 +3,6 @@ package com.svhsoftware.automation.framework;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -13,7 +12,20 @@ public abstract class BaseTest extends BaseCommon {
  
     @BeforeClass
     public void classLevelSetup() {
-    	
+    	initialSetup();
+    	log.info("Started running test : " + this.getClass().getName());
+    }
+ 
+    @AfterClass
+    public void teardown () {
+    	cleanup() ;
+    	log.info("Completed running test : " + this.getClass().getName());
+    }
+    
+    
+    private void initialSetup()
+    {
+    	log.info("Initial setup....");
     	setupBrowserWebDrivers();
     	
         //Create a Chrome driver. All test classes use this.
@@ -24,9 +36,9 @@ public abstract class BaseTest extends BaseCommon {
         
         setWebDriver(driver);
     }
- 
-    @AfterClass
-    public void teardown () {
+    
+    private void cleanup() {
+    	log.info("Releasing resources and closing....");
         driver.quit();
     }
     
@@ -35,6 +47,7 @@ public abstract class BaseTest extends BaseCommon {
      */
     private void setupBrowserWebDrivers()
     {
+    	log.info("Verifing and downloading latest webdrivers.");
     	try {    	
 	    	WebDriverManager.chromedriver().setup();
 	    	WebDriverManager.firefoxdriver().setup();
