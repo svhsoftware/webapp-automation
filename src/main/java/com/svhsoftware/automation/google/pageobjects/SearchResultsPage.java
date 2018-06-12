@@ -1,4 +1,4 @@
-package com.svhsoftware.automation.pageobjects.google;
+package com.svhsoftware.automation.google.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

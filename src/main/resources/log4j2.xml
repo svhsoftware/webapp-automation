@@ -21,7 +21,7 @@
     </Appenders>
     
     <Loggers>
-        <Logger name="file" level="debug" additivity="false">
+        <Logger name="automation.file" level="debug" additivity="false">
             <appender-ref ref="fileLogger" level="debug" />
         </Logger>
         <Root level="debug" additivity="false">

@@ -1,12 +1,12 @@
-package com.svhsoftware.automation.tests.google;
+package com.svhsoftware.automation.google.tests;
 
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
 import com.svhsoftware.automation.framework.BaseTest;
-import com.svhsoftware.automation.pageobjects.google.SearchPage;
-import com.svhsoftware.automation.pageobjects.google.SearchResultsPage;
+import com.svhsoftware.automation.google.pageobjects.SearchPage;
+import com.svhsoftware.automation.google.pageobjects.SearchResultsPage;
 
 public class SearchTest extends BaseTest {
 

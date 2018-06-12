@@ -21,12 +21,28 @@ public abstract class BaseCommon {
     protected static WebDriverWait wait;
     protected static JavascriptExecutor jsExecutor;
     
-    public void setWebDriver(WebDriver webDriver) {
+    protected static ConfigManager configManager;
+    
+    /**
+     * Initialize Components.
+     * @param webDriver
+     */
+    public void initializeComponents(WebDriver webDriver) {
         driver = webDriver;
         
         //Create a wait. All test classes use this.
-        wait = new WebDriverWait(driver,15);
+        if(null == wait) {
+            wait = new WebDriverWait(driver,15);	
+        }
+        
+        if(null == configManager) {
+        	configManager = new ConfigManager();
+        }
 	}
+    
+    public static WebDriver getDriver() {
+    	return driver;
+    }
     
     /**
      * Creates and return new page
@@ -36,7 +52,7 @@ public abstract class BaseCommon {
     public  <TPage extends BasePage> TPage getPageInstance (Class<TPage> pageClass) {
         try {
             //Initialize the Page with its elements and return it.
-        	log.info("Creating page object : " + pageClass);
+        	log.info("Creating page object : " + pageClass.getSimpleName());
             return PageFactory.initElements(driver,  pageClass);
         } catch (Exception e) {
             e.printStackTrace();

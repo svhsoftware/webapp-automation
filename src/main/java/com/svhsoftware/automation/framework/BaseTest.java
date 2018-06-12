@@ -4,26 +4,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@Listeners({com.svhsoftware.automation.framework.TestListener.class})
 public abstract class BaseTest extends BaseCommon {
  
-    @BeforeClass
-    public void classLevelSetup() {
-    	initialSetup();
-    	log.info("Started running test : " + this.getClass().getName());
-    }
- 
-    @AfterClass
-    public void teardown () {
-    	cleanup() ;
-    	log.info("Completed running test : " + this.getClass().getName());
-    }
-    
-    
-    private void initialSetup()
+	@BeforeSuite
+    public void suiteLevelSetup()
     {
     	log.info("Initial setup....");
     	setupBrowserWebDrivers();
@@ -34,12 +26,23 @@ public abstract class BaseTest extends BaseCommon {
         //Maximize Window
         driver.manage().window().maximize();
         
-        setWebDriver(driver);
+        initializeComponents(driver);
     }
     
-    private void cleanup() {
+	@AfterSuite
+    public void suiteLevelTearDown() {
     	log.info("Releasing resources and closing....");
         driver.quit();
+    }
+    
+    @BeforeClass
+    public void classLevelSetup() {
+    	//
+    }
+ 
+    @AfterClass
+    public void classLevelTeardown () {
+    	//
     }
     
     /**
