@@ -40,7 +40,7 @@ public class TestListener implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
+		log.error("Test Failed : " + result.toString());
 		
 	}
 

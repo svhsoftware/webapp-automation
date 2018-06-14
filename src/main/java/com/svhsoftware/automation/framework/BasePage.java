@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 public abstract class BasePage extends BaseCommon {
 
     public BasePage(WebDriver driver) {
-    	initializeComponents(driver);
+    	super();
     }
     
-    public abstract boolean isPageOpened();
+    public abstract boolean isPageLoaded();
 }

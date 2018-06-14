@@ -3,7 +3,6 @@ package com.svhsoftware.automation.google.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.svhsoftware.automation.framework.BasePage;
 
@@ -25,8 +24,8 @@ public class SearchPage extends BasePage {
         driver.get(PAGE_URL);
     }
     
-    public boolean isPageOpened() {
-    	return wait.until(ExpectedConditions.elementToBeClickable(googleSearchBtn)).isDisplayed();
+    public boolean isPageLoaded() {
+    	return waitUntilVisible(googleSearchBtn);
     }
     
     public SearchResultsPage searchFor(String text) {

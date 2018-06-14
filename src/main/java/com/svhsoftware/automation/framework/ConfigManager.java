@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigManager {
-	
+
 	private Properties properties;
 	private final String propertyFilePath= "config.properties";
 
@@ -32,10 +32,16 @@ public class ConfigManager {
 		}		
 	}
 	
-	public String getHomeURL(){
+	public String getHomeURL() {
 		String value = properties.getProperty("home.url");
 		if(value != null) return value;
 		else throw new RuntimeException("home.url not specified in the config.properties file.");		
+	}
+	
+	public String getBrowserType() {
+		String value = properties.getProperty("browser.type");
+		if(value != null) return value;
+		else throw new RuntimeException("browser.type not specified in the config.properties file.");
 	}
 
 }

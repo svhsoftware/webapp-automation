@@ -15,6 +15,6 @@ public class SearchTest extends BaseTest {
     	SearchPage searchPage = getPageInstance(SearchPage.class);
     	searchPage.goToPage();
     	SearchResultsPage searchResultsPage = searchPage.searchFor("SVH Software");
-    	assertTrue(searchResultsPage.isPageOpened());
+    	assertTrue(searchResultsPage.isPageLoaded());
     }
 }

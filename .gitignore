@@ -19,3 +19,6 @@ test-output/
 
 #logs
 logs/
+
+# Don't promote
+quote/
