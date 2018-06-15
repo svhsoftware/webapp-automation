@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MainSuiteFirefox" parallel="false">
+    <suite-files>
+    	<suite-file path="src/main/resources/main-suite.xml"></suite-file>
+        <suite-file path="src/main/resources/main-suite-firefox.xml"></suite-file>
+        <suite-file path="src/main/resources/main-suite-safari.xml"></suite-file>
+    </suite-files>
+</suite>

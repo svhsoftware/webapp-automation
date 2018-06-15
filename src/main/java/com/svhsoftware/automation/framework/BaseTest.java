@@ -6,12 +6,15 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 @Listeners({com.svhsoftware.automation.framework.TestListener.class})
 public abstract class BaseTest extends BaseCommon {
  
 	@BeforeSuite
-    public void suiteLevelSetup()
+	@Parameters( {"browser.type"} )
+    public void suiteLevelSetup(@Optional("CHROME") String browserType)
     {
     	log.info("Initial setup....");
         
@@ -19,8 +22,8 @@ public abstract class BaseTest extends BaseCommon {
     	
     	BrowserDriver.setupBrowserWebDrivers();
     	
-    	log.info("Running tests with browser : " + configManager.getBrowserType());
-    	driver = BrowserDriver.getWebDriver(configManager.getBrowserType());
+    	log.info("Running tests with browser : " + browserType);
+    	driver = BrowserDriver.getWebDriver(browserType);
     	log.info(((RemoteWebDriver)driver).getCapabilities().toString());
         
     	initializeComponents(driver);

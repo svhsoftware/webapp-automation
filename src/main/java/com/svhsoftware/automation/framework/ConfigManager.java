@@ -38,10 +38,4 @@ public class ConfigManager {
 		else throw new RuntimeException("home.url not specified in the config.properties file.");		
 	}
 	
-	public String getBrowserType() {
-		String value = properties.getProperty("browser.type");
-		if(value != null) return value;
-		else throw new RuntimeException("browser.type not specified in the config.properties file.");
-	}
-
 }
